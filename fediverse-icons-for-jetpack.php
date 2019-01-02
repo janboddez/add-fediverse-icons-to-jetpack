@@ -38,6 +38,14 @@ class Fediverse_Icons_Jetpack {
 
 	/**
 	 * Applies our additional SVG icons to social menu links.
+	 *
+	 * @link https://github.com/Automattic/jetpack/blob/3bf755fd92fd52a6296551aa7bdf1a95c9271752/modules/theme-tools/social-menu/icon-functions.php#L89 Jetpack's 'original' at the time of writing.
+	 *
+	 * @param string $item_output Menu item output.
+	 * @param WP_Post $item Menu item object.
+	 * @param int $depth Menu depth.
+	 * @param array $args wp_nav_menu() arguments.
+	 * @return string Modified menu item output.
 	 */
 	public function apply_icon( $item_output, $item, $depth, $args ) {
 		// Supported icons/domains. We'll eventually set these up so they work
@@ -61,7 +69,7 @@ class Fediverse_Icons_Jetpack {
 			}
 		}
 
-		// Always return `$item_output`.
+		// Always return `$item_output`!
 		return $item_output;
 	}
 }

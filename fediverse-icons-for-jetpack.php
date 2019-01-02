@@ -51,16 +51,18 @@ class Fediverse_Icons_Jetpack {
 		// Supported icons/domains. We'll eventually set these up so they work
 		// for other instances, too.
 		$social_icons = array(
-			'mastodon.social' => 'mastodon',
-			'pixelfed.social' => 'pixelfed',
+			//'mastodon.social' => 'mastodon',
+			//'pixelfed.social' => 'pixelfed',
+			'menu-mastodon' => 'mastodon',
+			'menu-pixelfed' => 'pixelfed',
 		);
 
 		// If the URL in `$item_output` matches any of the sites above, apply
 		// the SVG icon.
 		if ( 'jetpack-social-menu' === $args->theme_location ) {
 			foreach ( $social_icons as $attr => $value ) {
-				if ( false !== strpos( $item_output, $attr ) ) {
-					$item_output = str_replace(
+				if ( false !== stripos( $item_output, $attr ) ) {
+					$item_output = str_ireplace(
 						$args->link_after,
 						'</span>' . jetpack_social_menu_get_svg( array( 'icon' => esc_attr( $value ) ) ),
 						$item_output

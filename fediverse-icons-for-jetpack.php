@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Fediverse Icons for Jetpack
- * Description: Add fediverse SVG icons to Jetpack's Social Menu module.
+ * Description: Add Fediverse SVG icons to Jetpack's Social Menu module.
  * GitHub Plugin URI: https://github.com/janboddez/fediverse-icons-for-jetpack
  * Author: Jan Boddez
  * Author URI: https://janboddez.tech/
@@ -53,7 +53,7 @@ class Fediverse_Icons_Jetpack {
 		$social_icons = array(
 			'diaspora',
 			'friendica',
-			'gnu-social',
+			'gnu social',
 			'mastodon',
 			'peertube',
 			'pixelfed',

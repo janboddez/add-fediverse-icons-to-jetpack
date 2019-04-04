@@ -1,4 +1,4 @@
-# Fediverse Icons for Jetpack
+# Add Fediverse Icons to Jetpack
 Add Fediverse SVG icons to Jetpack's [Social Menu](https://jetpack.com/support/social-menu/) module.
 
 ## Instructions

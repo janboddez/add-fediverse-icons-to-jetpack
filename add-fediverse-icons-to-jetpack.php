@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Fediverse Icons for Jetpack
+ * Plugin Name: Add Fediverse Icons to Jetpack
  * Description: Add Fediverse SVG icons to Jetpack's Social Menu module.
  * GitHub Plugin URI: https://github.com/janboddez/fediverse-icons-for-jetpack
  * Author: Jan Boddez
@@ -8,10 +8,14 @@
  * License: GNU General Public License v3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Version: 0.1
+ *
+ * @package Fediverse_Icons_Jetpack
  */
 
-// Prevent this script from being loaded directly.
-defined( 'ABSPATH' ) or exit;
+// Prevent direct access.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Main plugin class.
@@ -41,22 +45,23 @@ class Fediverse_Icons_Jetpack {
 	 *
 	 * @link https://github.com/Automattic/jetpack/blob/3bf755fd92fd52a6296551aa7bdf1a95c9271752/modules/theme-tools/social-menu/icon-functions.php#L89 Jetpack's 'original' at the time of writing.
 	 *
-	 * @param string $item_output Menu item output.
+	 * @param string  $item_output Menu item output.
 	 * @param WP_Post $item Menu item object.
-	 * @param int $depth Menu depth.
-	 * @param array $args wp_nav_menu() arguments.
+	 * @param int     $depth Menu depth.
+	 * @param array   $args wp_nav_menu() arguments.
+	 *
 	 * @return string Modified menu item output.
 	 */
 	public function apply_icon( $item_output, $item, $depth, $args ) {
 		// Supported icons/domains. We'll eventually set these up so they work
 		// for other instances, too.
 		$social_icons = array(
-			'diaspora' => 'diaspora',
-			'friendica' => 'friendica',
-			'gnu social' => 'gnu-social',
-			'mastodon' => 'mastodon',
-			'peertube' => 'peertube',
-			'pixelfed' => 'pixelfed',
+			'Diaspora'   => 'diaspora',
+			'Friendica'  => 'friendica',
+			'GNU Social' => 'gnu-social',
+			'Mastodon'   => 'mastodon',
+			'PeerTube'   => 'peertube',
+			'Pixelfed'   => 'pixelfed',
 		);
 
 		// If the URL in `$item_output` matches any of the sites above, apply
@@ -75,7 +80,6 @@ class Fediverse_Icons_Jetpack {
 			}
 		}
 
-		// Always return `$item_output`!
 		return $item_output;
 	}
 }

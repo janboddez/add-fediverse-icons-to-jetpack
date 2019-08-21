@@ -1,6 +1,9 @@
 # Add Fediverse Icons to Jetpack
 Add Fediverse SVG icons to Jetpack's [Social Menu](https://jetpack.com/support/social-menu/) module.
 
+## Installation
+This plugin is available from the [official WordPress.org repo](https://wordpress.org/plugins/add-fediverse-icons-to-jetpack/)! Simply head over to Plugins > Add New, search for 'add fediverse icons to jetpack', and install from there.
+
 ## Instructions
 When adding a [Custom Link](https://codex.wordpress.org/Appearance_Menus_Screen#Custom_Links) to your Social Menu, set its Navigation Label to the platform you're linking to, e.g., 'GNU Social', 'Peertube', or 'Mastodon'.
  

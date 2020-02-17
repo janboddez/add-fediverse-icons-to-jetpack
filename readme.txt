@@ -1,7 +1,7 @@
 === Add Fediverse Icons to Jetpack ===
 Contributors: janboddez
 Tags: jetpack, social, fediverse, icons, mastodon
-Tested up to: 5.2
+Tested up to: 5.3
 License: GNU General Public License v3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 

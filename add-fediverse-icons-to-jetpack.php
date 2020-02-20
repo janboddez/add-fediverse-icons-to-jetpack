@@ -7,7 +7,7 @@
  * Author URI: https://janboddez.tech/
  * License: GNU General Public License v3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Version: 0.1
+ * Version: 0.1.1
  *
  * @package Fediverse_Icons_Jetpack
  */
@@ -53,8 +53,12 @@ class Fediverse_Icons_Jetpack {
 	 * @return string              Modified menu item output.
 	 */
 	public function apply_icon( $item_output, $item, $depth, $args ) {
-		// Supported icons/domains. We'll eventually set these up so they work
-		// for other instances, too.
+		if ( ! function_exists( 'jetpack_social_menu_get_svg' ) ) {
+			// Jetpack not installed?
+			return $item_output;
+		}
+
+		// Supported platforms.
 		$social_icons = array(
 			'Diaspora'   => 'diaspora',
 			'Friendica'  => 'friendica',
@@ -66,8 +70,9 @@ class Fediverse_Icons_Jetpack {
 
 		// If the URL in `$item_output` matches any of the sites above, apply
 		// the SVG icon. For this to work, the menu item must actually be named
-		// after the platform, as we can't deduce anything from a domain name
-		// anymore (an instance's domain could be just about anything)!
+		// after the platform. We can't deduce anything from a domain name,
+		// like Jetpack does (an instance's domain could be just about
+		// anything)!
 		if ( 'jetpack-social-menu' === $args->theme_location ) {
 			foreach ( $social_icons as $attr => $value ) {
 				if ( false !== stripos( $item_output, $attr ) ) {

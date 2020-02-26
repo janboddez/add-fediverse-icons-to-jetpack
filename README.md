@@ -15,7 +15,7 @@ While Jetpack itself uses domain names, e.g., `facebook.com`, to decide which ic
 ## Twenty Twenty Compatibility
 This plugin should work with any and all themes that rely on Jetpack's social menu module.
 
-The Twenty Twenty theme, however, is not one of those themes, and uses a slightly different approach for its social menu icons. Two small changes, however, will typically make it behave. (You'd still need Jetpack, though!)
+The Twenty Twenty theme, however, is not one of those themes, and uses a slightly different approach to its social menu icons. Nevertheless, two small changes will typically make it behave. (You'd still need Jetpack, though!)
 
 ### PHP
 Add the following to your (child) theme's `functions.php`:

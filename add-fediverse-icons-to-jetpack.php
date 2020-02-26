@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Add Fediverse Icons to Jetpack
- * Description: Add Fediverse SVG icons to Jetpack's Social Menu module.
+ * Plugin Name:       Add Fediverse Icons to Jetpack
+ * Description:       Add Fediverse SVG icons to Jetpack's Social Menu module.
  * GitHub Plugin URI: https://github.com/janboddez/fediverse-icons-for-jetpack
- * Author: Jan Boddez
- * Author URI: https://janboddez.tech/
- * License: GNU General Public License v3
- * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Version: 0.1.1
+ * Author:            Jan Boddez
+ * Author URI:        https://janboddez.tech/
+ * License:           GNU General Public License v3
+ * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
+ * Version:           0.2.0
  *
  * @package Fediverse_Icons_Jetpack
  */
@@ -22,9 +22,29 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Fediverse_Icons_Jetpack {
 	/**
+	 * This plugin's single instance.
+	 *
+	 * @var Fediverse_Icons_Jetpack $instance Plugin instance.
+	 */
+	private static $instance;
+
+	/**
+	 * Returns the single instance of this class.
+	 *
+	 * @return Fediverse_Icons_Jetpack Single class instance.
+	 */
+	public static function get_instance() {
+		if ( null === self::$instance ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
+	}
+
+	/**
 	 * Constructor.
 	 */
-	public function __construct() {
+	private function __construct() {
 		add_action( 'wp_footer', array( $this, 'print_icons' ), 10000 ); // This prio should have our icons land below Jetpack's.
 		add_filter( 'walker_nav_menu_start_el', array( $this, 'apply_icon' ), 100, 4 ); // Important! This prio should make this callback run after Jetpack's.
 	}
@@ -89,4 +109,4 @@ class Fediverse_Icons_Jetpack {
 	}
 }
 
-new Fediverse_Icons_Jetpack();
+Fediverse_Icons_Jetpack::get_instance();

@@ -20,37 +20,39 @@ The Twenty Twenty theme, however, is not one of those themes, and uses a slightl
 ### PHP
 Add the following to your (child) theme's `functions.php`:
 ```
-// Unhook the plugin's "default" callback.
-remove_filter( 'walker_nav_menu_start_el', array( Fediverse_Icons_Jetpack::get_instance(), 'apply_icon' ), 100 );
+if ( class_exists( 'Fediverse_Icons_Jetpack' ) && function_exists( 'jetpack_social_menu_get_svg' ) ) :
+  // Unhook the plugin's "default" callback.
+  remove_filter( 'walker_nav_menu_start_el', array( Fediverse_Icons_Jetpack::get_instance(), 'apply_icon' ), 100 );
 
-// And add our own instead.
-add_filter( 'walker_nav_menu_start_el', function( $item_output, $item, $depth, $args ) {
-  $social_icons = array(
-    'Diaspora'   => 'diaspora',
-    'Friendica'  => 'friendica',
-    'GNU Social' => 'gnu-social',
-    'Mastodon'   => 'mastodon',
-    'PeerTube'   => 'peertube',
-    'Pixelfed'   => 'pixelfed',
-  );
+  // And add our own instead.
+  add_filter( 'walker_nav_menu_start_el', function( $item_output, $item, $depth, $args ) {
+    $social_icons = array(
+      'Diaspora'   => 'diaspora',
+      'Friendica'  => 'friendica',
+      'GNU Social' => 'gnu-social',
+      'Mastodon'   => 'mastodon',
+      'PeerTube'   => 'peertube',
+      'Pixelfed'   => 'pixelfed',
+    );
 
-  if ( 'social' === $args->theme_location ) {
-    // Twenty Twenty's social menu.
-    foreach ( $social_icons as $attr => $value ) {
-      if ( false !== stripos( $item_output, $attr ) ) {
-        // Only for above Fediverse platforms, replace the icon
-        // previously added by Twenty Twenty.
-        $item_output = preg_replace(
-          '@<svg(.*?)</svg>@i',
-          jetpack_social_menu_get_svg( array( 'icon' => esc_attr( $value ) ) ),
-          $item_output
-        );
+    if ( 'social' === $args->theme_location ) {
+      // Twenty Twenty's social menu.
+      foreach ( $social_icons as $attr => $value ) {
+        if ( false !== stripos( $item_output, $attr ) ) {
+          // Only for above Fediverse platforms, replace the icon
+          // previously added by Twenty Twenty.
+          $item_output = preg_replace(
+            '@<svg(.*?)</svg>@i',
+            jetpack_social_menu_get_svg( array( 'icon' => esc_attr( $value ) ) ),
+            $item_output
+          );
+        }
       }
     }
-  }
 
-  return $item_output;
-}, 100, 4 );
+    return $item_output;
+  }, 100, 4 );
+endif;
 ```
 
 ### CSS

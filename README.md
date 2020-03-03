@@ -20,12 +20,17 @@ The Twenty Twenty theme, however, is not one of those themes, and uses a slightl
 ### PHP
 Add the following to your (child) theme's `functions.php`:
 ```
-if ( class_exists( 'Fediverse_Icons_Jetpack' ) && function_exists( 'jetpack_social_menu_get_svg' ) ) :
+if ( class_exists( 'Fediverse_Icons_Jetpack' ) ) :
   // Unhook the plugin's "default" callback.
   remove_filter( 'walker_nav_menu_start_el', array( Fediverse_Icons_Jetpack::get_instance(), 'apply_icon' ), 100 );
 
   // And add our own instead.
   add_filter( 'walker_nav_menu_start_el', function( $item_output, $item, $depth, $args ) {
+	   if ( ! function_exists( 'jetpack_social_menu_get_svg' ) ) {
+	     // Jetpack not installed?
+	     return $item_output;
+ 	  }
+
     $social_icons = array(
       'Diaspora'   => 'diaspora',
       'Friendica'  => 'friendica',
@@ -35,10 +40,10 @@ if ( class_exists( 'Fediverse_Icons_Jetpack' ) && function_exists( 'jetpack_soci
       'Pixelfed'   => 'pixelfed',
     );
 
-    if ( 'social' === $args->theme_location ) {
+    if ( 'jetpack-social-menu' === $args->theme_location ) {
       // Twenty Twenty's social menu.
       foreach ( $social_icons as $attr => $value ) {
-        if ( false !== stripos( $item_output, $attr ) ) {
+        if ( false !== stripos( $item_output, $attr )  ) {
           // Only for above Fediverse platforms, replace the icon
           // previously added by Twenty Twenty.
           $item_output = preg_replace(

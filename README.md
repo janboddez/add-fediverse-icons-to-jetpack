@@ -26,10 +26,10 @@ if ( class_exists( 'Fediverse_Icons_Jetpack' ) ) :
 
   // And add our own instead.
   add_filter( 'walker_nav_menu_start_el', function( $item_output, $item, $depth, $args ) {
-	   if ( ! function_exists( 'jetpack_social_menu_get_svg' ) ) {
-	     // Jetpack not installed?
-	     return $item_output;
- 	  }
+    if ( ! function_exists( 'jetpack_social_menu_get_svg' ) ) {
+      // Jetpack not installed?
+      return $item_output;
+    }
 
     $social_icons = array(
       'Diaspora'   => 'diaspora',

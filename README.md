@@ -40,7 +40,7 @@ if ( class_exists( 'Fediverse_Icons_Jetpack' ) ) :
       'Pixelfed'   => 'pixelfed',
     );
 
-    if ( 'jetpack-social-menu' === $args->theme_location ) {
+    if ( 'social' === $args->theme_location ) {
       // Twenty Twenty's social menu.
       foreach ( $social_icons as $attr => $value ) {
         if ( false !== stripos( $item_output, $attr )  ) {

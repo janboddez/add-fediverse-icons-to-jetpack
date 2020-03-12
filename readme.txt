@@ -25,3 +25,13 @@ This plugin currently provides icons for:
 - Mastodon
 - Peertube
 - Pixelfed
+
+=== Changelog ===
+== 0.3.0 ==
+Implemented singleton pattern, allowing hook callbacks to be removed.
+
+== 0.2.0 ==
+Check for Jetpack's `jetpack_social_menu_get_svg()` function.
+
+== 0.1.0 ==
+Initial release.

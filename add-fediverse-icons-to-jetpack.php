@@ -2,6 +2,7 @@
 /**
  * Plugin Name:       Add Fediverse Icons to Jetpack
  * Description:       Add Fediverse SVG icons to Jetpack's Social Menu module.
+ * Plugin URI:        https://janboddez.tech/wordpress/add-fediverse-icons-to-jetpack
  * GitHub Plugin URI: https://github.com/janboddez/fediverse-icons-for-jetpack
  * Author:            Jan Boddez
  * Author URI:        https://janboddez.tech/
@@ -89,10 +90,9 @@ class Fediverse_Icons_Jetpack {
 		);
 
 		// If the URL in `$item_output` matches any of the sites above, apply
-		// the SVG icon. For this to work, the menu item must actually be named
-		// after the platform. We can't deduce anything from a domain name,
-		// like Jetpack does (an instance's domain could be just about
-		// anything)!
+		// the SVG icon. For this to work, the menu item must be named after the
+		// platform. We can't deduce anything from a domain name, like Jetpack
+		// does (an instance's domain could be just about anything)!
 		if ( 'jetpack-social-menu' === $args->theme_location ) {
 			foreach ( $social_icons as $attr => $value ) {
 				if ( false !== stripos( $item_output, $attr ) ) {

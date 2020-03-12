@@ -74,7 +74,7 @@ class Fediverse_Icons_Jetpack {
 	 * @return string              Modified menu item output.
 	 */
 	public function apply_icon( $item_output, $item, $depth, $args ) {
-		if ( ! function_exists( 'jetpack_social_menu_get_svg' ) ) {
+		if ( ! class_exists( 'Jetpack' ) ) {
 			// Jetpack not installed?
 			return $item_output;
 		}

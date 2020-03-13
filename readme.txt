@@ -26,12 +26,12 @@ This plugin currently provides icons for:
 - Peertube
 - Pixelfed
 
-=== Changelog ===
-== 0.3.0 ==
-Implemented singleton pattern, allowing hook callbacks to be removed.
+== Changelog ==
+= 0.3 =
+Refactor, so that hook callbacks can also be removed.
 
-== 0.2.0 ==
-Check for Jetpack's `jetpack_social_menu_get_svg()` function.
+= 0.2 =
+Added check that Jetpack's installed.
 
-== 0.1.0 ==
+= 0.1 =
 Initial release.

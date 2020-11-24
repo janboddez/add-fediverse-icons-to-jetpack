@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <ruleset name="Custom WordPress Standards">
+	<config name="testVersion" value="5.6-"/>
+
 	<rule ref="WordPress" />
 
 	<rule ref="WordPress.Files.FileName">
@@ -8,8 +10,13 @@
 		</properties>
 	</rule>
 
-	<config name="testVersion" value="5.6-"/>
 	<rule ref="PHPCompatibilityWP">
 		<include-pattern>*\.php$</include-pattern>
 	</rule>
+
+	<exclude-pattern>docs/*</exclude-pattern>
+	<exclude-pattern>svn/*</exclude-pattern>
+	<exclude-pattern>tests/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>bootstrap\.php</exclude-pattern>
 </ruleset>

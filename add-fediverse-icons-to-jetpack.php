@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:       Add Fediverse Icons to Jetpack
- * Description:       Add Fediverse SVG icons to Jetpack's Social Menu module.
- * Plugin URI:        https://janboddez.tech/wordpress/add-fediverse-icons-to-jetpack
- * Author:            Jan Boddez
- * Author URI:        https://janboddez.tech/
- * License:           GNU General Public License v3
- * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
- * Version:           0.3.2
+ * Plugin Name: Add Fediverse Icons to Jetpack
+ * Description: Add Fediverse SVG icons to Jetpack's Social Menu module.
+ * Plugin URI:  https://janboddez.tech/wordpress/add-fediverse-icons-to-jetpack
+ * Author:      Jan Boddez
+ * Author URI:  https://janboddez.tech/
+ * License:     GNU General Public License v3
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * Version:     0.3.2
  *
  * @package Fediverse_Icons_Jetpack
  */

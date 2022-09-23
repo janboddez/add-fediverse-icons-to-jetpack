@@ -10,10 +10,6 @@
 		</properties>
 	</rule>
 
-	<rule ref="PHPCompatibilityWP">
-		<include-pattern>*\.php$</include-pattern>
-	</rule>
-
 	<exclude-pattern>docs/*</exclude-pattern>
 	<exclude-pattern>svn/*</exclude-pattern>
 	<exclude-pattern>tests/*</exclude-pattern>

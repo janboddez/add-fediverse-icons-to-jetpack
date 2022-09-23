@@ -74,7 +74,15 @@ class Fediverse_Icons_Jetpack {
 	 */
 	public function apply_icon( $item_output, $item, $depth, $args ) {
 		if ( ! function_exists( 'jetpack_social_menu_get_svg' ) ) {
-			return $item_output;
+			if ( ! is_file( WP_CONTENT_DIR . '/plugins/jetpack/modules/theme-tools/social-menu/icon-functions.php' ) ) {
+				return $item_output;
+			}
+
+			include WP_CONTENT_DIR . '/plugins/jetpack/modules/theme-tools/social-menu/icon-functions.php';
+
+			if ( ! function_exists( 'jetpack_social_menu_get_svg' ) ) {
+				return $item_output;
+			}
 		}
 
 		// Supported platforms.

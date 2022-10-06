@@ -4,12 +4,6 @@
 
 	<rule ref="WordPress" />
 
-	<rule ref="WordPress.Files.FileName">
-		<properties>
-			<property name="strict_class_file_names" value="false" />
-		</properties>
-	</rule>
-
 	<exclude-pattern>docs/*</exclude-pattern>
 	<exclude-pattern>svn/*</exclude-pattern>
 	<exclude-pattern>tests/*</exclude-pattern>

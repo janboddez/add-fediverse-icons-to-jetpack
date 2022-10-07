@@ -5,10 +5,12 @@
  * @package Fediverse_Icons_Jetpack
  */
 
-namespace Fediverse_Icons_Jetpack;
-
 /**
  * Main plugin class.
+ *
+ * This class (and file) isn't namespaced for backwards compatibility reasons,
+ * but new classes will be. The alternative would be to give them overly long
+ * names. Neither is perfect.
  */
 class Fediverse_Icons_Jetpack {
 	/**
@@ -54,7 +56,7 @@ class Fediverse_Icons_Jetpack {
 
 		if ( is_readable( get_template_directory() . '/templates/index.html' ) || current_theme_supports( 'add_block_template_part_support' ) ) {
 			// Current theme's a block theme or supports block-based template parts.
-			Block_Themes::register();
+			\Fediverse_Icons_Jetpack\Block_Themes::register();
 		}
 	}
 

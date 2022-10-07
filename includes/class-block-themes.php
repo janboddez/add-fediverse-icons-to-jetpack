@@ -93,7 +93,7 @@ class Block_Themes {
 
 		$icon = block_core_social_link_get_icon( $service );
 
-		foreach ( Fediverse_Icons_Jetpack::$social_icons as $attr => $value ) {
+		foreach ( \Fediverse_Icons_Jetpack::$social_icons as $attr => $value ) {
 			if ( $attr === $label ) {
 				// Override the default SVG icon.
 				$icon = '<svg class="icon icon-' . $value . '" aria-hidden="true" role="img"> <use href="#icon-' . $value . '" xlink:href="#icon-' . $value . '"></use> </svg>';

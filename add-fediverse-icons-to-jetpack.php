@@ -12,8 +12,6 @@
  * @package Fediverse_Icons_Jetpack
  */
 
-namespace Fediverse_Icons_Jetpack;
-
 // Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

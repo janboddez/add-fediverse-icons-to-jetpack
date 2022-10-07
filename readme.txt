@@ -1,7 +1,7 @@
 === Add Fediverse Icons to Jetpack ===
 Contributors: janboddez
 Tags: jetpack, social, fediverse, icons, mastodon
-Tested up to: 5.8
+Tested up to: 6.1
 License: GNU General Public License v3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -27,8 +27,8 @@ This plugin currently provides icons for:
 - Pixelfed
 
 == Changelog ==
-= 0.3.2 =
-Bump "Tested up to" to WordPress's latest version.
+= 0.4.0 =
+Add (experimental) support for block themes.
 
 = 0.3 =
 Refactor, so that hook callbacks can also be removed.
@@ -38,4 +38,3 @@ Added check that Jetpack's installed.
 
 = 0.1 =
 Initial release.
-

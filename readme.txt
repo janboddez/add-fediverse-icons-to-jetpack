@@ -27,6 +27,10 @@ This plugin currently provides icons for:
 - Pixelfed
 
 == Changelog ==
+
+= 0.4.1 =
+Ensure compatibility with Jetpack 11.8
+
 = 0.4.0 =
 Add (experimental) support for block themes.
 

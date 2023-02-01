@@ -7,7 +7,7 @@
  * Author URI:  https://jan.boddez.net/
  * License:     GNU General Public License v3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Version:     0.4.0
+ * Version:     0.4.1
  *
  * @package Fediverse_Icons_Jetpack
  */

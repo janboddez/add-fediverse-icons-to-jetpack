@@ -88,6 +88,17 @@ class Fediverse_Icons_Jetpack {
 			return $item_output;
 		}
 
+		/*
+		 * If we're running Jetpack 11.8 or higher,
+		 * we do not need to handle the 'mastodon' social icon
+		 * in Jetpack's Social Menu.
+		 * This is now handled by Jetpack itself: https://github.com/Automattic/jetpack/pull/28175
+		 */
+		$jetpack_version = defined( 'JETPACK__VERSION' ) ? JETPACK__VERSION : '0';
+		if ( version_compare( $jetpack_version, '11.8', '>=' ) ) {
+			unset( static::$social_icons['Mastodon'] );
+		}
+
 		// If the URL in `$item_output` matches any of the sites above, apply
 		// the SVG icon. For this to work, the menu item must be named after the
 		// platform. We can't deduce anything from a domain name, like Jetpack

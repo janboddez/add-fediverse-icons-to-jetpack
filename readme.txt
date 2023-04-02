@@ -28,6 +28,9 @@ This plugin currently provides icons for:
 - Pixelfed
 
 == Changelog ==
+= 0.5.0 =
+Avoid conflicting IDs.
+
 = 0.3.2 =
 Bump "Tested up to" to WordPress's latest version.
 
@@ -39,4 +42,3 @@ Added check that Jetpack's installed.
 
 = 0.1 =
 Initial release.
-

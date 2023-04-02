@@ -51,18 +51,13 @@ class Fediverse_Icons_Jetpack {
 	public function register() {
 		add_action( 'wp_footer', array( $this, 'print_icons' ), 10000 ); // This prio should have our icons land below Jetpack's.
 		add_filter( 'walker_nav_menu_start_el', array( $this, 'apply_icon' ), 100, 4 ); // Important! This prio should make this callback run after Jetpack's.
-
-		if ( is_readable( get_template_directory() . '/templates/index.html' ) || current_theme_supports( 'add_block_template_part_support' ) ) {
-			// Current theme's a block theme or supports block-based template parts.
-			Block_Themes::register();
-		}
 	}
 
 	/**
 	 * Outputs our own social menu icons so they can be used anywhere on the page.
 	 */
 	public function print_icons() {
-		$custom_icons = dirname( dirname( __FILE__ ) ) . '/assets/svg/custom-icons.svg';
+		$custom_icons = dirname( __DIR__ ) . '/assets/svg/custom-icons.svg';
 
 		if ( is_readable( $custom_icons ) ) {
 			require_once $custom_icons;

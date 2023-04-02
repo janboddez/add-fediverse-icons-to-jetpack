@@ -7,10 +7,6 @@
 
 /**
  * Main plugin class.
- *
- * This class (and file) isn't namespaced for backwards compatibility reasons,
- * but new classes will be. The alternative would be to give them overly long
- * names. Neither is perfect.
  */
 class Fediverse_Icons_Jetpack {
 	/**
@@ -19,12 +15,14 @@ class Fediverse_Icons_Jetpack {
 	 * @var array $social_icons Supported platforms.
 	 */
 	public static $social_icons = array(
-		'Diaspora'   => 'diaspora',
-		'Friendica'  => 'friendica',
-		'GNU Social' => 'gnu-social',
-		'Mastodon'   => 'mastodon',
-		'PeerTube'   => 'peertube',
-		'Pixelfed'   => 'pixelfed',
+		// Using `fedicons-` prefix to prevent duplicate IDs now that Jetpack
+		// also has `icon-mastodon`.
+		'Diaspora'   => 'fedicons-diaspora',
+		'Friendica'  => 'fedicons-friendica',
+		'GNU Social' => 'fedicons-gnu-social',
+		'Mastodon'   => 'fedicons-mastodon',
+		'PeerTube'   => 'fedicons-peertube',
+		'Pixelfed'   => 'fedicons-pixelfed',
 	);
 
 	/**
@@ -56,7 +54,7 @@ class Fediverse_Icons_Jetpack {
 
 		if ( is_readable( get_template_directory() . '/templates/index.html' ) || current_theme_supports( 'add_block_template_part_support' ) ) {
 			// Current theme's a block theme or supports block-based template parts.
-			\Fediverse_Icons_Jetpack\Block_Themes::register();
+			Block_Themes::register();
 		}
 	}
 
@@ -76,10 +74,10 @@ class Fediverse_Icons_Jetpack {
 	 *
 	 * @link https://github.com/Automattic/jetpack/blob/3bf755fd92fd52a6296551aa7bdf1a95c9271752/modules/theme-tools/social-menu/icon-functions.php#L89 Jetpack's 'original' at the time of writing.
 	 *
-	 * @param string  $item_output Menu item output.
-	 * @param WP_Post $item        Menu item object.
-	 * @param int     $depth       Menu depth.
-	 * @param array   $args        wp_nav_menu() arguments.
+	 * @param string         $item_output Menu item output.
+	 * @param WP_Post        $item        Menu item object.
+	 * @param int            $depth       Menu depth.
+	 * @param array|stdClass $args        `wp_nav_menu()` arguments.
 	 *
 	 * @return string Modified menu item output.
 	 */
